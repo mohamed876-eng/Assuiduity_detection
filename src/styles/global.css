@@ -1,0 +1,174 @@
+@layer base {
+  * {
+    border-color: var(--sa-border);
+  }
+
+  body {
+    min-width: 320px;
+    background: var(--sa-background);
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+
+  img,
+  svg,
+  canvas {
+    display: block;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-card;
+  }
+
+  .input-base {
+    @apply h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-brand-600 focus:ring-2 focus:ring-brand-600/10 focus:outline-none disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400;
+  }
+
+  .table-th {
+    @apply px-4 py-3 text-left text-[11px] font-semibold tracking-wider text-slate-500 uppercase whitespace-nowrap;
+  }
+
+  .table-td {
+    @apply px-4 py-3.5 text-sm text-slate-600 align-middle;
+  }
+
+  .landing-spotlight {
+    -webkit-mask-image: radial-gradient(
+      ellipse 13% 20% at 76% 31%,
+      #000 0%,
+      #000 36%,
+      transparent 78%
+    );
+    mask-image: radial-gradient(
+      ellipse 13% 20% at 76% 31%,
+      #000 0%,
+      #000 36%,
+      transparent 78%
+    );
+  }
+
+  .landing-animation {
+    filter: grayscale(1) contrast(1.16) brightness(0.42);
+    opacity: 0.86;
+  }
+
+  @media (max-width: 640px) {
+    .landing-spotlight {
+      -webkit-mask-image: radial-gradient(
+        ellipse 18% 19% at 80% 33%,
+        #000 0%,
+        #000 36%,
+        transparent 78%
+      );
+      mask-image: radial-gradient(
+        ellipse 18% 19% at 80% 33%,
+        #000 0%,
+        #000 36%,
+        transparent 78%
+      );
+    }
+
+  }
+
+  .mesh-surface {
+    background-color: var(--sa-dark);
+    background-image:
+      radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.08), transparent 34%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size:
+      auto,
+      46px 46px,
+      46px 46px;
+  }
+
+  .mesh-surface-light {
+    background-image:
+      radial-gradient(circle at 50% 30%, rgba(52, 51, 56, 0.06), transparent 40%),
+      linear-gradient(to right, rgba(52, 51, 56, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(52, 51, 56, 0.035) 1px, transparent 1px);
+    background-size:
+      auto,
+      38px 38px,
+      38px 38px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #c8c8cc transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #c8c8cc;
+    border-radius: 999px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .animate-in {
+    animation: fade-up 220ms ease-out both;
+  }
+
+  .animate-landing-in {
+    animation: landing-in 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-landing-late {
+    animation: landing-in 900ms 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes landing-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-landing-in,
+  .animate-landing-late,
+  .animate-in {
+    animation: none !important;
+  }
+}

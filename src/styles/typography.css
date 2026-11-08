@@ -1,0 +1,102 @@
+@layer base {
+  html {
+    font-family: var(--sa-font-body);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--sa-font-body);
+    font-size: var(--sa-text-base);
+    line-height: 1.55;
+    letter-spacing: -0.006em;
+    background: var(--sa-background);
+    color: var(--sa-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--sa-font-body);
+    color: var(--sa-dark);
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--sa-text-2xl);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: var(--sa-text-xl);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: var(--sa-text-lg);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  small {
+    font-size: var(--sa-text-xs);
+  }
+
+  label,
+  input,
+  select,
+  textarea,
+  button {
+    font-family: inherit;
+  }
+
+  ::selection {
+    background: #d9d9dd;
+    color: #101014;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--sa-primary);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .type-display {
+    font-size: var(--sa-text-display);
+    font-weight: 600;
+    line-height: 0.94;
+    letter-spacing: -0.055em;
+  }
+
+  .type-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .type-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--sa-secondary);
+  }
+
+  .type-meta {
+    font-size: 0.6875rem;
+    color: var(--sa-muted);
+  }
+}
